@@ -1,0 +1,32 @@
+### Reservation
+POST http://localhost:3000/reservations
+Content-Type: application/json
+
+{
+  "name": "Monika",
+  "date": "2026-07-20",
+  "time": "19:00",
+  "guests": 2
+}
+
+
+### Collection Order
+POST http://localhost:3000/orders
+Content-Type: application/json
+
+{
+  "customerName": "Monika",
+  "phone": "07123456789",
+  "collectionTime": "ASAP",
+  "notes": "No coriander please",
+  "items": [
+    {
+      "menuItemId": 1,
+      "quantity": 2
+    },
+    {
+      "menuItemId": 5,
+      "quantity": 1
+    }
+  ]
+}

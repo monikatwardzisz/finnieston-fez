@@ -1,0 +1,20 @@
+# Environment variables
+.env
+
+# Dependencies
+node_modules/
+
+# Build files
+dist/
+build/
+
+# macOS
+.DS_Store
+
+# Generated Prisma client
+backend/src/generated/
+
+# AI/editor generated files
+backend/.agents/
+backend/.claude/
+backend/.windsurf/
