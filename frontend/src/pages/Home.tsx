@@ -1,5 +1,6 @@
 import "./Home.css";
 import { Link } from "react-router-dom";
+import React from "react";
 
 import heroPattern from "../assets/hero-pattern.jpg";
 import iconFez from "../assets/icon-fez.png";
@@ -8,7 +9,7 @@ import iconTable from "../assets/icon-table.png";
 import iconTagine from "../assets/icon-tagine.png";
 import finniestonFezLogo from "../assets/finnieston-fez-logo.png";
 
-export default function App(): JSX.Element {
+export default function App(): React.ReactElement {
   return (
     <div className="website">
       <header className="navbar">
