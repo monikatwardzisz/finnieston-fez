@@ -19,7 +19,7 @@ function Menu() {
   const { addToBasket } = useBasket();
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/menu`)
+    fetch("https://finnieston-fez.onrender.com/menu")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to load menu");

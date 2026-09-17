@@ -14,7 +14,7 @@ function Booking() {
   const makeBooking = async () => {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/reservations`,
+        "https://finnieston-fez.onrender.com/reservations",
         {
           method: "POST",
           headers: {
