@@ -13,19 +13,22 @@ function Booking() {
 
   const makeBooking = async () => {
     try {
-      const response = await fetch("http://localhost:3000/reservations", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/reservations`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            surname,
+            date,
+            time,
+            people: Number(people),
+          }),
         },
-        body: JSON.stringify({
-          name,
-          surname,
-          date,
-          time,
-          people: Number(people),
-        }),
-      });
+      );
 
       if (!response.ok) {
         throw new Error("Failed to make booking");

@@ -19,7 +19,7 @@ function Menu() {
   const { addToBasket } = useBasket();
 
   useEffect(() => {
-    fetch("http://localhost:3000/menu")
+    fetch(`${import.meta.env.VITE_API_URL}/menu`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to load menu");
