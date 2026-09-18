@@ -90,7 +90,7 @@ export async function sendBookingEmail(booking: {
 }) {
   await transporter.sendMail({
     from: process.env.EMAIL_USER,
-    to: process.env.ORDER_EMAIL,
+    to: process.env.EMAIL_USER,
     subject: "New Table Booking",
     html: `
       <h2>New Table Booking</h2>
