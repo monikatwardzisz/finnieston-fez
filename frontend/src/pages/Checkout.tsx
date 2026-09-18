@@ -19,22 +19,25 @@ function Checkout() {
 
   const placeOrder = async () => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/orders`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://finnieston-fez.onrender.com/orders",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            customerName: name,
+            phone,
+            collectionTime,
+            notes,
+            items: basket.map((item) => ({
+              menuItemId: item.id,
+              quantity: item.quantity,
+            })),
+          }),
         },
-        body: JSON.stringify({
-          customerName: name,
-          phone,
-          collectionTime,
-          notes,
-          items: basket.map((item) => ({
-            menuItemId: item.id,
-            quantity: item.quantity,
-          })),
-        }),
-      });
+      );
 
       if (!response.ok) {
         throw new Error("Failed to place order");
