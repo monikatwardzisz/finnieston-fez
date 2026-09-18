@@ -211,6 +211,9 @@ async function main() {
   console.log(`Seeding ${menuItems.length} menu items...`);
 
   // Wipe existing rows so re-running the seed doesn't create duplicates
+
+  await prisma.orderItem.deleteMany();
+  await prisma.order.deleteMany();
   await prisma.menuItem.deleteMany();
 
   await prisma.menuItem.createMany({
