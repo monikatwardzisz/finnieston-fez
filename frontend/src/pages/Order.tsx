@@ -18,7 +18,7 @@ function Order() {
   const { basket, addToBasket, removeFromBasket } = useBasket();
 
   useEffect(() => {
-    fetch("https://finnieston-fez.onrender.com/orders")
+    fetch("https://finnieston-fez.onrender.com/menu")
       .then((response) => response.json())
       .then((data) => {
         setMenu(data);
