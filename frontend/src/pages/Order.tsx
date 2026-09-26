@@ -1,6 +1,3 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useBasket } from "../context/BasketContext";
 import "./Order.css";
 
 function Order() {
