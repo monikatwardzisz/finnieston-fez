@@ -1,5 +1,4 @@
 import express from "express";
-import { sendBookingEmail } from "../email";
 
 const router = express.Router();
 
@@ -20,27 +19,20 @@ router.post("/", async (req, res) => {
     });
   }
 
-  // try {
-  //   await sendBookingEmail({
-  //     name,
-  //     surname,
-  //     phone,
-  //     email,
-  //     date,
-  //     time,
-  //     people,
-  //   });
+  // Email temporarily disabled while testing
+  // await sendBookingEmail({
+  //   name,
+  //   surname,
+  //   phone,
+  //   email,
+  //   date,
+  //   time,
+  //   people,
+  // });
 
-  //   res.status(201).json({
-  //     message: "Booking request received",
-  //   });
-  // } catch (error) {
-  //   console.error("Booking email error:", error);
-
-  //   res.status(500).json({
-  //     error: "Could not send booking request.",
-  //   });
-  // }
+  res.status(201).json({
+    message: "Booking request received",
+  });
 });
 
 export default router;
