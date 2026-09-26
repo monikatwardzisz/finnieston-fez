@@ -18,8 +18,8 @@ function BookingConfirmation() {
         <p className="booking-confirmation-message">Thank you, {name}!</p>
 
         <p>
-          Your table has been booked successfully. We look forward to seeing you
-          at Finnieston Fez.
+          Your table request has been submitted successfully. We will contact
+          you shortly to confirm your booking.
         </p>
 
         <Link to="/" className="booking-confirmation-button">

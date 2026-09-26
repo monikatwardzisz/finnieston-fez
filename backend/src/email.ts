@@ -86,6 +86,8 @@ export async function sendOrderEmail(order: {
 export async function sendBookingEmail(booking: {
   name: string;
   surname: string;
+  phone: string;
+  email: string;
   date: string;
   time: string;
   people: number;
@@ -93,14 +95,39 @@ export async function sendBookingEmail(booking: {
   await transporter.sendMail({
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_USER,
-    subject: "New Table Booking",
+    subject: "📅 New Booking Request — Finnieston Fez",
     html: `
-      <h2>New Table Booking</h2>
+      <h2>New Booking Request</h2>
 
-      <p><strong>Name:</strong> ${booking.name} ${booking.surname}</p>
-      <p><strong>Date:</strong> ${booking.date}</p>
-      <p><strong>Time:</strong> ${booking.time}</p>
-      <p><strong>Number of people:</strong> ${booking.people}</p>
+      <h3>Customer Details</h3>
+
+      <p>
+        <strong>Name:</strong> ${booking.name} ${booking.surname}<br>
+        <strong>Phone:</strong> ${booking.phone}<br>
+        <strong>Email:</strong> ${booking.email}
+      </p>
+
+      <h3>Booking Details</h3>
+
+      <p>
+        <strong>Requested date:</strong> ${booking.date}<br>
+        <strong>Requested time:</strong> ${booking.time}<br>
+        <strong>Number of guests:</strong> ${booking.people}
+      </p>
+
+      <hr>
+
+      <p>
+        <strong>This is a booking request, not a confirmed booking.</strong>
+      </p>
+
+      <p>
+        Please contact the customer to confirm the booking details.
+      </p>
+
+      <hr>
+
+      <p>Finnieston Fez</p>
     `,
   });
 }

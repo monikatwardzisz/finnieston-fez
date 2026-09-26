@@ -10,6 +10,8 @@ function Booking() {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [people, setPeople] = useState("2");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
 
   const makeBooking = async () => {
     try {
@@ -23,6 +25,8 @@ function Booking() {
           body: JSON.stringify({
             name,
             surname,
+            phone,
+            email,
             date,
             time,
             people: Number(people),
@@ -38,6 +42,8 @@ function Booking() {
         state: {
           name,
           surname,
+          phone,
+          email,
           date,
           time,
           people,
@@ -89,6 +95,28 @@ function Booking() {
           </div>
         </div>
 
+        <div className="phone-number-section">
+          <label htmlFor="phone">Phone Number</label>
+          <input
+            id="phone"
+            type="tel"
+            placeholder="Your phone number"
+            value={phone}
+            onChange={(event) => setPhone(event.target.value)}
+          />
+        </div>
+
+        <div className="email-section">
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="Your email address"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+        </div>
+
         <div className="form-section">
           <h2>When would you like to visit?</h2>
 
@@ -125,8 +153,6 @@ function Booking() {
                 <option value="3:30 PM">3:30 PM</option>
                 <option value="4:00 PM">4:00 PM</option>
                 <option value="4:30 PM">4:30 PM</option>
-                <option value="5:00 PM">5:00 PM</option>
-                <option value="5:30 PM">5:30 PM</option>
               </select>
             </div>
           </div>
@@ -159,10 +185,12 @@ function Booking() {
 
         <button
           className="booking-button"
-          disabled={!name || !surname || !date || !time || !people}
+          disabled={
+            !name || !surname || !phone || !email || !date || !time || !people
+          }
           onClick={makeBooking}
         >
-          Confirm Booking
+          Submit a booking request
         </button>
       </section>
     </main>
