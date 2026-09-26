@@ -16,7 +16,7 @@ function Booking() {
   const makeBooking = async () => {
     try {
       const response = await fetch(
-        "https://finnieston-fez.onrender.com/booking",
+        "https://finnieston-fez.onrender.com/reservations",
         {
           method: "POST",
           headers: {
@@ -33,6 +33,7 @@ function Booking() {
           }),
         },
       );
+      console.log("Booking response:", response);
 
       if (!response.ok) {
         throw new Error("Failed to make booking");
