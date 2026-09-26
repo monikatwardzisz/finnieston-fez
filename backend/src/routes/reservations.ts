@@ -19,16 +19,16 @@ router.post("/", async (req, res) => {
     });
   }
 
-  // Email temporarily disabled while testing
-  // await sendBookingEmail({
-  //   name,
-  //   surname,
-  //   phone,
-  //   email,
-  //   date,
-  //   time,
-  //   people,
-  // });
+  Email temporarily disabled while testing
+  await sendBookingEmail({
+    name,
+    surname,
+    phone,
+    email,
+    date,
+    time,
+    people,
+  });
 
   res.status(201).json({
     message: "Booking request received",
