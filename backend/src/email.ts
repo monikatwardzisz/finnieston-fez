@@ -30,7 +30,7 @@ export async function sendOrderEmail(order: {
 
   await resend.emails.send({
     from: "onboarding@resend.dev",
-    to: ["monika.twardzisz@gmail.com", "finniestonfez@gmail.com"],
+    to: ["monika.twardzisz@gmail.com"],
     subject: `New Collection Order #${order.id}`,
     html: `
       <h1>New Collection Order #${order.id}</h1>
