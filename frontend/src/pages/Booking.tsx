@@ -15,24 +15,21 @@ function Booking() {
 
   const makeBooking = async () => {
     try {
-      const response = await fetch(
-        "https://finnieston-fez-1.onrender.com/reservations",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name,
-            surname,
-            phone,
-            email,
-            date,
-            time,
-            people: Number(people),
-          }),
+      const response = await fetch("http://localhost:3000/reservations", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify({
+          name,
+          surname,
+          phone,
+          email,
+          date,
+          time,
+          people: Number(people),
+        }),
+      });
       console.log("Booking response:", response);
 
       if (!response.ok) {
