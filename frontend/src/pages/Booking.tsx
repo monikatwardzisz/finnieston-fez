@@ -16,7 +16,7 @@ function Booking() {
   const makeBooking = async () => {
     try {
       const response = await fetch(
-        "https://finnieston-fez.onrender.com/reservations",
+        "https://finnieston-fez-1.onrender.com/reservations",
         {
           method: "POST",
           headers: {

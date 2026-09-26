@@ -1,14 +1,6 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function sendOrderEmail(order: {
   id: number;
@@ -36,12 +28,12 @@ export async function sendOrderEmail(order: {
     )
     .join("");
 
-  await transporter.sendMail({
-    from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
-    subject: ` New Collection Order #${order.id}`,
+  await resend.emails.send({
+    from: "onboarding@resend.dev",
+    to: "monika.twardzisz@gmail.com",
+    subject: `New Collection Order #${order.id}`,
     html: `
-      <h1> New Collection Order #${order.id}</h1>
+      <h1>New Collection Order #${order.id}</h1>
 
       <h2>Customer</h2>
 
@@ -77,10 +69,6 @@ export async function sendOrderEmail(order: {
       <p>Finnieston Fez Collection Order</p>
     `,
   });
-
-
-
-
 }
 
 export async function sendBookingEmail(booking: {
@@ -92,10 +80,10 @@ export async function sendBookingEmail(booking: {
   time: string;
   people: number;
 }) {
-  await transporter.sendMail({
-    from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
-    subject: "📅 New Booking Request — Finnieston Fez",
+  await resend.emails.send({
+    from: "onboarding@resend.dev",
+    to: "monika.twardzisz@gmail.com",
+    subject: "New Booking Request — Finnieston Fez",
     html: `
       <h2>New Booking Request</h2>
 
@@ -131,3 +119,4 @@ export async function sendBookingEmail(booking: {
     `,
   });
 }
+
